@@ -1,7 +1,14 @@
 <script lang="ts">
-	import { SignUp, SignedIn, SignedOut } from 'svelte-clerk';
+	import { SignIn, SignedIn, SignedOut } from 'svelte-clerk';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
+
+	// Redirect to getting-started if already signed in
+	$effect(() => {
+		if (browser) {
+			// Check is handled by SignedIn component below
+		}
+	});
 </script>
 
 <SignedIn>
@@ -13,15 +20,15 @@
 <SignedOut>
 	{#snippet children()}
 		<main class="flex h-screen w-screen bg-zinc-900 py-12">
-			<div class=" flex h-full w-full flex-col items-center justify-center gap-12 px-8 md:px-24">
+			<div class="flex h-full w-full flex-col items-center justify-center gap-12 px-8 md:px-24">
 				<div class="">
-					<p class="text-xs font-semibold tracking-[0.2em] text-green-400/80 uppercase">signup</p>
-					<h1 class="mt-3 text-3xl font-semibold text-white md:text-5xl">Join Lekana AI</h1>
+					<p class="text-xs font-semibold tracking-[0.2em] text-green-400/80 uppercase">welcome back</p>
+					<h1 class="mt-3 text-3xl font-semibold text-white md:text-5xl">Login to Lekana AI</h1>
 				</div>
 
 				<div class="flex w-full max-w-md flex-col items-center gap-6">
-					<SignUp 
-						afterSignUpUrl="/getting-started"
+					<SignIn 
+						afterSignInUrl="/getting-started"
 						appearance={{
 							elements: {
 								rootBox: 'w-full',
