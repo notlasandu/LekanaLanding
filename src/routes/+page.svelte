@@ -61,10 +61,10 @@
 </script>
 
 <svelte:head>
-	<title>Lekana AI - Automated Document Workflows</title>
+	<title>Lekana - Automated Document Workflows</title>
 	<meta
 		name="description"
-		content="Lekana AI automates document workflows for businesses. Scan, structure, and route documents seamlessly."
+		content="Lekana automates document workflows for businesses. Scan, structure, and route documents seamlessly."
 	/>
 	<meta property="og:image" content="/thumb.png" />
 </svelte:head>
@@ -76,7 +76,7 @@
 	>
 		<a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300">
 			<img src="/logo.svg" alt="logo" class="h-6 w-6" />
-			<span class="font-semibold">Lekana AI</span>
+			<span class="font-semibold">Lekana</span>
 		</a>
 
 		<div class="hidden items-center gap-8 text-sm text-gray-300 md:flex">
@@ -113,7 +113,7 @@
 	</style>
 
 	<div
-		class="absolute top-1/12 aspect-square w-full scale-200 justify-self-center rounded-full bg-radial from-green-500/20 to-transparent to-60% md:top-0 md:scale-100"
+		class="absolute top-1/12 aspect-square w-full scale-200 justify-self-center rounded-full bg-radial from-green-500/20 to-transparent animate-[pulse_5s_ease-in-out_infinite] to-60% md:top-0 md:scale-100"
 	></div>
 	<section class="relative z-10 min-h-screen max-w-xs text-white md:max-w-6xl">
 		<div
@@ -179,7 +179,7 @@
 
 	<!-- FEATURES -->
 	<section class="max-w-7xl py-28 text-white">
-		<h2 class="text-center text-4xl font-semibold">Why businesses use Lekana AI</h2>
+		<h2 class="text-center text-4xl font-semibold">Why businesses use Lekana</h2>
 
 		<div class="mt-16 grid gap-10 px-6 md:grid-cols-4 md:px-16">
 			<!-- 1 -->
@@ -246,7 +246,7 @@
 
 	<!-- JOIN WAITLIST -->
 	<section id="waitlist" class="max-w-sm py-16 text-white md:max-w-3xl md:py-24">
-		<h2 class="text-center text-2xl font-semibold md:text-4xl">Join the Lekana AI Waitlist</h2>
+		<h2 class="text-center text-2xl font-semibold md:text-4xl">Join the Lekana Waitlist</h2>
 		<p class="mt-3 text-center text-xs text-gray-400 md:text-base">
 			Share a bit about your team and workflows — we’ll reach out when there’s a perfect fit.
 		</p>
@@ -387,7 +387,7 @@
 							required
 						/>
 						<span class="text-sm">
-							I agree to be contacted about Lekana AI and understand my information may be used to
+							I agree to be contacted about Lekana and understand my information may be used to
 							follow up about relevant products and services.
 						</span>
 					</label>
@@ -417,9 +417,9 @@
 	<!-- ABOUT -->
 	<section id="about" class="py-28 text-white">
 		<div class="mx-auto max-w-6xl px-4 md:px-8">
-			<h2 class="text-center text-4xl font-bold md:text-5xl">About Lekana AI</h2>
+			<h2 class="text-center text-4xl font-bold md:text-5xl">About Lekana</h2>
 			<p class="mx-auto mt-6 text-center text-sm leading-relaxed text-gray-400 md:text-base">
-				Lekana AI is an OCR-powered document intake service for businesses. We read your incoming
+				Lekana is an OCR-powered document intake service for businesses. We read your incoming
 				documents — PDFs, scans, invoices, and forms — understand them using advanced OCR + LLM
 				models, and route the data into your custom workflow. You don’t build or maintain anything:
 				you describe the workflow, we set it up, and give you a secure private portal.
@@ -432,7 +432,7 @@
 						<h3 class="text-lg font-semibold text-white md:text-xl">Fully managed from day one</h3>
 						<p class="mt-3 leading-relaxed text-gray-400">
 							Most “automation” tools still expect you to wire up APIs, build pipelines, and manage
-							models. Lekana AI is different. We operate as a managed intake layer for your
+							models. Lekana is different. We operate as a managed intake layer for your
 							business: we connect to your inboxes, storage, or uploads, and deliver structured,
 							validated data where it needs to go — with humans completely out of the loop.
 						</p>
@@ -468,7 +468,7 @@
 				>
 					<h3 class="text-lg font-semibold text-white md:text-xl">Built for operations teams</h3>
 					<p class="mt-3 text-sm leading-relaxed text-gray-400">
-						Lekana AI is ideal for teams buried in repetitive document work:
+						Lekana is ideal for teams buried in repetitive document work:
 					</p>
 
 					<ul class="mt-4 space-y-3 text-sm text-gray-300">
@@ -521,7 +521,7 @@
 			<p
 				class="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-gray-400 md:text-base"
 			>
-				Answers to the most common questions about how Lekana AI fits into your stack and
+				Answers to the most common questions about how Lekana fits into your stack and
 				operations.
 			</p>
 
@@ -533,7 +533,7 @@
 					<summary
 						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
-						<span>How does Lekana AI actually work day-to-day?</span>
+						<span>How does Lekana actually work day-to-day?</span>
 						<span
 							class="ml-4 text-xs text-gray-500 transition-transform duration-200 group-open:rotate-90"
 							>&rsaquo;</span
@@ -593,14 +593,14 @@
 					<summary
 						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
-						<span>Do we need internal engineering resources to use Lekana AI?</span>
+						<span>Do we need internal engineering resources to use Lekana?</span>
 						<span
 							class="ml-4 text-xs text-gray-500 transition-transform duration-200 group-open:rotate-90"
 							>&rsaquo;</span
 						>
 					</summary>
 					<p class="mt-3 text-sm leading-relaxed text-gray-400">
-						No. Lekana AI is designed for operations, finance, and business teams. You describe your
+						No. Lekana is designed for operations, finance, and business teams. You describe your
 						current process, share example documents, and confirm the outputs you need. We handle
 						all configuration, integrations, and maintenance behind the scenes.
 					</p>
@@ -654,7 +654,7 @@
 			<div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
 				<!-- Brand -->
 				<div class="max-w-sm space-y-3">
-					<p class="text-base font-semibold text-white">Lekana AI</p>
+					<p class="text-base font-semibold text-white">Lekana</p>
 					<p class="text-xs leading-relaxed text-gray-500 md:text-sm">
 						An OCR-powered document intake service for businesses. We read your documents,
 						understand them, and route them into your workflow — fully managed, end-to-end.
@@ -713,7 +713,7 @@
 			<div
 				class="mt-4 flex flex-col items-center justify-between gap-3 text-[11px] text-gray-500 md:flex-row md:text-xs"
 			>
-				<p>Lekana AI © {new Date().getFullYear()}. All rights reserved.</p>
+				<p>Lekana © {new Date().getFullYear()}. All rights reserved.</p>
 				<p class="text-center md:text-right">
 					Built for businesses that are done with the chaos of documents.
 				</p>
