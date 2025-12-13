@@ -61,12 +61,157 @@
 </script>
 
 <svelte:head>
-	<title>Lekana - Automated Document Workflows</title>
+	<!-- Primary Meta Tags -->
+	<title>Lekana - AI-Powered Document Automation | Intelligent OCR & Workflow Platform</title>
 	<meta
 		name="description"
-		content="Lekana automates document workflows for businesses. Scan, structure, and route documents seamlessly."
+		content="Transform your document chaos with Lekana's AI-powered automation. Our intelligent OCR and LLM technology extracts, structures, and routes documents automatically — no coding required."
 	/>
-	<meta property="og:image" content="/thumb.png" />
+	<meta
+		name="keywords"
+		content="AI document processing, intelligent OCR, document automation, AI workflow automation, machine learning document extraction, automated document routing, LLM document understanding, artificial intelligence business automation, smart document management, AI-powered OCR"
+	/>
+	<meta name="author" content="Lekana" />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://lekana.dev/" />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://lekana.dev/" />
+	<meta
+		property="og:title"
+		content="Lekana - AI-Powered Document Automation | Intelligent OCR & Workflow Platform"
+	/>
+	<meta
+		property="og:description"
+		content="Transform your document chaos with Lekana's AI-powered automation. Our intelligent OCR and LLM technology extracts, structures, and routes documents automatically."
+	/>
+	<meta property="og:image" content="https://lekana.dev/thumb.png" />
+	<meta property="og:site_name" content="Lekana" />
+	<meta property="og:locale" content="en_US" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:url" content="https://lekana.dev/" />
+	<meta name="twitter:title" content="Lekana - AI-Powered Document Automation" />
+	<meta
+		name="twitter:description"
+		content="Transform your document chaos with AI-powered automation. Intelligent OCR + LLM technology for automatic document processing."
+	/>
+	<meta name="twitter:image" content="https://lekana.dev/thumb.png" />
+
+	<!-- Additional SEO Meta Tags -->
+	<meta name="theme-color" content="#05df72" />
+	<meta name="application-name" content="Lekana" />
+
+	<!-- JSON-LD Structured Data -->
+	{@html `<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Organization",
+				"@id": "https://lekana.dev/#organization",
+				"name": "Lekana",
+				"url": "https://lekana.dev",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://lekana.dev/logo.svg"
+				},
+				"description": "AI-powered document automation platform using intelligent OCR and LLM technology",
+				"sameAs": []
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://lekana.dev/#website",
+				"url": "https://lekana.dev",
+				"name": "Lekana",
+				"publisher": {
+					"@id": "https://lekana.dev/#organization"
+				},
+				"description": "AI-Powered Document Automation Platform"
+			},
+			{
+				"@type": "SoftwareApplication",
+				"@id": "https://lekana.dev/#software",
+				"name": "Lekana",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "AI-powered document intake and automation service that uses intelligent OCR and LLM technology to extract, structure, and route business documents automatically.",
+				"offers": {
+					"@type": "Offer",
+					"availability": "https://schema.org/PreOrder",
+					"description": "Join the waitlist for early access"
+				},
+				"featureList": [
+					"AI-Powered Document Recognition",
+					"Intelligent OCR with LLM Understanding",
+					"Automated Workflow Routing",
+					"Multi-language Support",
+					"Custom Integration APIs",
+					"Secure Private Portal"
+				],
+				"publisher": {
+					"@id": "https://lekana.dev/#organization"
+				}
+			},
+			{
+				"@type": "FAQPage",
+				"@id": "https://lekana.dev/#faq",
+				"mainEntity": [
+					{
+						"@type": "Question",
+						"name": "How does Lekana actually work day-to-day?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "You connect your document sources (email inboxes, uploads, storage, or APIs) and tell us what you want to happen. We configure document types, fields to extract, validation rules, and routing destinations. Once live, new documents are automatically read, structured, and sent into your systems — without your team touching each file."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "What kinds of documents can you handle?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "We work with PDFs, scans, and image-based documents including invoices, forms, contracts, ID documents, shipping documents, statements, and more. Layout-heavy documents, multipage files, tables, and semi-structured forms are all supported thanks to our OCR + LLM stack."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Can you integrate with our existing tools and APIs?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Yes. We can push structured data into CRMs, ERPs, helpdesk tools, internal databases, webhooks, or custom APIs. During onboarding, we map your document fields to the exact objects and endpoints you use today."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Do we need internal engineering resources to use Lekana?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "No. Lekana is designed for operations, finance, and business teams. You describe your current process, share example documents, and confirm the outputs you need. We handle all configuration, integrations, and maintenance behind the scenes."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "How do you handle security and data privacy?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Data security is a core part of the product. Your documents are processed in controlled environments, and access is restricted through your private portal. We can discuss data retention, encryption, and compliance requirements during onboarding."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "What does the private portal include?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Your portal gives you visibility into document intake, processing status, extracted fields, and delivery logs. You can review edge cases, export data, and adjust workflows with our team — without touching any low-level infrastructure."
+						}
+					}
+				]
+			}
+		]
+	}
+	</script>`}
 </svelte:head>
 
 <main class="relative flex flex-col items-center overflow-x-clip bg-neutral-950">
@@ -74,7 +219,7 @@
 	<nav
 		class="to white-0 fixed top-0 z-20 flex w-full items-center justify-between bg-linear-to-t from-white/5 px-8 py-4 text-white backdrop-blur-md md:px-24"
 	>
-		<a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300">
+		<a href="/" class="flex items-center gap-2 transition-opacity duration-300 hover:opacity-80">
 			<img src="/logo.svg" alt="logo" class="h-6 w-6" />
 			<span class="font-semibold">Lekana</span>
 		</a>
@@ -113,7 +258,7 @@
 	</style>
 
 	<div
-		class="absolute top-1/12 aspect-square w-full scale-200 justify-self-center rounded-full bg-radial from-green-500/20 to-transparent animate-[pulse_5s_ease-in-out_infinite] to-60% md:top-0 md:scale-100"
+		class="absolute top-1/12 aspect-square w-full scale-200 animate-[pulse_5s_ease-in-out_infinite] justify-self-center rounded-full bg-radial from-green-500/20 to-transparent to-60% md:top-0 md:scale-100"
 	></div>
 	<section class="relative z-10 min-h-screen max-w-xs text-white md:max-w-6xl">
 		<div
@@ -328,7 +473,7 @@
 							id="industry"
 							name="industry"
 							bind:value={data.industry}
-							class="w-full rounded-lg border border-neutral-700 bg-black/40 px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
+							class="w-full rounded-lg border border-neutral-700 bg-black px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
 						>
 							<option value="" disabled selected>Select an industry</option>
 							<option>Financial Services</option>
@@ -432,9 +577,9 @@
 						<h3 class="text-lg font-semibold text-white md:text-xl">Fully managed from day one</h3>
 						<p class="mt-3 leading-relaxed text-gray-400">
 							Most “automation” tools still expect you to wire up APIs, build pipelines, and manage
-							models. Lekana is different. We operate as a managed intake layer for your
-							business: we connect to your inboxes, storage, or uploads, and deliver structured,
-							validated data where it needs to go — with humans completely out of the loop.
+							models. Lekana is different. We operate as a managed intake layer for your business:
+							we connect to your inboxes, storage, or uploads, and deliver structured, validated
+							data where it needs to go — with humans completely out of the loop.
 						</p>
 					</div>
 
@@ -521,8 +666,7 @@
 			<p
 				class="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-gray-400 md:text-base"
 			>
-				Answers to the most common questions about how Lekana fits into your stack and
-				operations.
+				Answers to the most common questions about how Lekana fits into your stack and operations.
 			</p>
 
 			<div class="mx-auto mt-10 space-y-6">
@@ -688,13 +832,6 @@
 
 				<!-- Call to action -->
 				<div class="space-y-3 text-xs md:text-sm">
-					<!-- <p class="text-xs font-semibold tracking-wide text-gray-500 uppercase">
-						Get early access
-					</p>
-					<p class="max-w-xs text-gray-500">
-						Share your use case and document volume — we’ll help design your first automated intake
-						workflows.
-					</p> -->
 					<div
 						class="glow-btn flex w-fit rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
 					>

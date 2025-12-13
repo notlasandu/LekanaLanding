@@ -1,3 +1,10 @@
-# allow crawling everything by default
+# Lekana Robots.txt
+# AI-Powered Document Automation Platform
+
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Sitemap
+Sitemap: https://lekana.dev/sitemap.xml

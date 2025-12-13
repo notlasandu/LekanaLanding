@@ -4,11 +4,10 @@ import { env } from '$env/dynamic/private';
 const username = env.AUTH_USERNAME;
 const password = env.AUTH_PASSWORD;
 
-
-const BASE_URL = 'https://lekana-ai-waitlist-api-627168942458.asia-south1.run.app/api';
+const BASE_URL = env.BASE_URL;
 
 async function getToken() {
-	const loginRes = await fetch(BASE_URL + '/auth/login', {
+	const loginRes = await fetch(BASE_URL + '/api/auth/login', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -39,8 +38,7 @@ export async function POST({ request }) {
 		const payload = await request.json();
 
 		const token = await getToken();
-
-		const res = await fetch(BASE_URL + '/waitlist', {
+		const res = await fetch(BASE_URL + '/api/waitlist', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -48,6 +46,7 @@ export async function POST({ request }) {
 			},
 			body: JSON.stringify(payload)
 		});
+		console.log(payload)
 
 		const data = await res.json();
 

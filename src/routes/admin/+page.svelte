@@ -26,7 +26,7 @@
 
 			if (!response.ok) {
 				console.error('Error:', result);
-				message = result?.error || 'Failed to submit. Please try again.';
+				message = result?.error || 'Failed to login. Please try again.';
 				return;
 			}
 

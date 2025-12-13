@@ -4,9 +4,7 @@ const auth_username = env.AUTH_USERNAME;
 const auth_password = env.AUTH_PASSWORD;
 const admin_username = env.ADMIN_USERNAME;
 const admin_password = env.ADMIN_PASSWORD;
-
-
-const BASE_URL = 'https://lekana-ai-waitlist-api-627168942458.asia-south1.run.app';
+const BASE_URL = env.BASE_URL;
 
 async function getToken() {
 	const loginRes = await fetch(`${BASE_URL}/api/auth/login`, {
@@ -21,8 +19,9 @@ async function getToken() {
 	if (!loginRes.ok) {
 		throw new Error('Failed to authenticate');
 	}
-
+	
 	const data = await loginRes.json();
+	
 	return data.token;
 }
 
@@ -38,7 +37,6 @@ export async function POST({ request }) {
 				{ status: 401 }
 			);
 		}
-
 		// 3. Get backend token
 		const token = await getToken();
 
