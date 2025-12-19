@@ -268,20 +268,21 @@
 </script>
 
 <svelte:head>
-	<title>Free Document Scanner - Extract Data with AI | Lekana OCR Demo</title>
+	<title>Free Document Scanner - Extract Data with AI | Lekana</title>
 	<meta
 		name="description"
 		content="Try Lekana's free AI document scanner. Upload PDFs, images, or scans and instantly extract structured data. No credit card required."
 	/>
 	<meta
 		name="keywords"
-		content="OCR, document scanner, AI, data extraction, PDF scanner, invoice processing, free OCR"
+		content="OCR, document scanner, AI, data extraction, PDF scanner, invoice processing, free OCR, free Transcription, free AI Document Scanner"
 	/>
 	<meta property="og:title" content="Free AI Document Scanner | Lekana Demo" />
 	<meta
 		property="og:description"
 		content="Upload any document and watch AI extract structured data in seconds. Try it free."
 	/>
+	<meta property="og:image" content="https://lekana.dev/thumb.png" />
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Free AI Document Scanner | Lekana Demo" />
@@ -406,7 +407,9 @@
 		</div>
 	{/if}
 
-	<div class="relative flex w-full flex-1 items-center justify-center overflow-clip pt-32 pb-16">
+	<div
+		class="relative flex w-full flex-1 items-center justify-center overflow-clip pt-16 pb-8 md:pt-32 md:pb-16"
+	>
 		<!-- Background glow -->
 		<div
 			class="absolute top-1/2 aspect-square w-full scale-200 animate-[pulse_5s_ease-in-out_infinite] justify-self-center rounded-full bg-radial from-green-500/15 to-transparent to-60% md:top-0 md:scale-150"
@@ -425,15 +428,6 @@
 							style="width: {progressPercent}%"
 						></div>
 					</div>
-					<p class="mt-2 text-center text-xs text-gray-500">
-						{#if currentStep === 1}
-							Step 1 of 3 — Upload your files
-						{:else if currentStep === 2}
-							Step 2 of 3 — Almost ready
-						{:else}
-							Final step — Let's go!
-						{/if}
-					</p>
 				</div>
 			{/if}
 
@@ -485,11 +479,11 @@
 						{#if files.length > 0}
 							<!-- svelte-ignore a11y_no_static_element_interactions -->
 							<div
-								class="mt-4 w-full rounded-xl border border-green-950 bg-black/40 p-4"
-								onclick={stopPropagation}
-								onkeydown={stopPropagation}
+								class="mt-4 w-full max-w-xs rounded-xl border border-green-950 bg-black/40 p-4 md:max-w-md"
+								onclick={(event) => stopPropagation(event)}
+								onkeydown={(event) => stopPropagation(event)}
 							>
-								<div class="mb-3 flex items-center justify-between">
+								<div class="mb-3 flex w-full items-center justify-between">
 									<p class="text-sm font-medium text-green-500">
 										{files.length} file{files.length > 1 ? 's' : ''} ready
 									</p>
@@ -501,19 +495,21 @@
 										Continue <ArrowRight class="h-4 w-4" />
 									</button>
 								</div>
-								<ul class="dark-scroll max-h-32 space-y-2 overflow-y-auto">
+								<ul class="dark-scroll max-h-32 w-full space-y-2 overflow-y-auto">
 									{#each files as file, i}
 										<li
-											class="flex items-center justify-between rounded-lg bg-black/30 px-3 py-2 text-sm text-gray-300"
+											class="flex w-full items-center justify-between rounded-lg bg-black/30 py-2 text-sm text-gray-300"
 										>
-											<div class="flex items-center gap-2 overflow-hidden">
-												<FileText class="h-4 w-4 shrink-0 text-gray-500" />
-												<span class="max-w-sm truncate">{file.name}</span>
+											<div class="flex w-full flex-col gap-1 overflow-hidden px-2">
+												<span class="flex items-center gap-2 truncate">
+													<FileText class="h-4 w-4 shrink-0 text-gray-500" />
+													{file.name}</span
+												>
 												<span class="text-xs text-gray-500">({formatBytes(file.size)})</span>
 											</div>
 											<button
 												onclick={() => removeFile(i)}
-												class="shrink-0 text-gray-500 transition-colors hover:text-red-400"
+												class="shrink-0 p-2 text-gray-500 transition-colors hover:text-red-400"
 												aria-label="Remove file"
 											>
 												<X class="h-4 w-4" />
@@ -572,14 +568,12 @@
 						>
 							← Add more files
 						</button>
-						<div class="glow-btn flex rounded-full p-0.5">
-							<button
-								onclick={goToStep3}
-								class="flex items-center gap-2 rounded-full bg-black px-8 py-3 text-white transition-all duration-300 hover:bg-neutral-900"
-							>
-								Extract Data <ArrowRight class="h-4 w-4" />
-							</button>
-						</div>
+						<button
+							onclick={goToStep3}
+							class="flex items-center gap-2 rounded-full bg-neutral-800 px-8 py-3 text-white transition-all duration-300 hover:bg-neutral-900"
+						>
+							Extract Data <ArrowRight class="h-4 w-4" />
+						</button>
 					</div>
 				</div>
 			{/if}
@@ -673,7 +667,7 @@
 						<div class="text-center">
 							<h1 class="text-2xl font-bold text-zinc-200 md:text-4xl">Ready When You Are</h1>
 							<p class="mx-auto mt-3 text-sm text-gray-400 md:text-base">
-								Hit the button below and watch the AI work its magic.
+								Hit the button below and watch Lekana work its magic.
 							</p>
 						</div>
 
@@ -690,14 +684,12 @@
 								{/each}
 							</ul>
 
-							<div class="glow-btn flex w-full rounded-full p-0.5">
-								<button
-									onclick={processFiles}
-									class="flex w-full items-center justify-center gap-2 rounded-full bg-black px-8 py-3 text-white transition-all duration-300 hover:bg-neutral-900"
-								>
-									<Sparkles class="h-4 w-4" /> Extract Data Now
-								</button>
-							</div>
+							<button
+								onclick={processFiles}
+								class="flex w-full items-center justify-center gap-2 rounded-full bg-neutral-800 px-8 py-3 text-white transition-all duration-300 hover:bg-neutral-900"
+							>
+								<Sparkles class="h-4 w-4" /> Proceed to Results
+							</button>
 						</div>
 
 						<button
@@ -707,20 +699,39 @@
 							← Go back
 						</button>
 					{/if}
-
 					{#if isProcessing}
-						<div class="text-center">
-							<div
-								class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-green-900 bg-green-900/20"
-							>
-								<Loader2 class="h-10 w-10 animate-spin text-green-500" />
+						<div class="flex flex-col items-center text-center">
+							<!-- Minimal 3-bar loader -->
+							<div class="mt-4 flex h-10 items-end gap-2">
+								<div class="mini-bar h-6 w-2 bg-green-600"></div>
+								<div class="mini-bar h-6 w-2 bg-green-500" style="animation-delay:0.15s;"></div>
+								<div class="mini-bar h-6 w-2 bg-green-600" style="animation-delay:0.3s;"></div>
 							</div>
-							<h2 class="text-xl font-semibold text-white">Analyzing your documents...</h2>
-							<p class="mt-2 text-sm text-gray-400">
-								Our AI is reading and extracting data. Just a few more seconds!
-							</p>
+
+							<h2 class="mt-6 text-xl font-semibold text-white">Analyzing your documents...</h2>
+							<p class="mt-2 text-sm text-gray-400">Lekana is reading and extracting data...</p>
 						</div>
 					{/if}
+
+					<style>
+						.mini-bar {
+							border-radius: 4px;
+							animation: bounce 0.8s ease-in-out infinite;
+							transform-origin: bottom;
+						}
+
+						@keyframes bounce {
+							0%,
+							100% {
+								transform: scaleY(0.4);
+								opacity: 0.7;
+							}
+							50% {
+								transform: scaleY(1);
+								opacity: 1;
+							}
+						}
+					</style>
 
 					{#if error}
 						<div class="max-w-md text-center">
@@ -769,12 +780,6 @@
 						<div
 							class="flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-900 px-4 py-2"
 						>
-							<Zap class="h-4 w-4 text-green-500" />
-							<span class="text-sm text-gray-300 capitalize">{results.metadata.engineUsed}</span>
-						</div>
-						<div
-							class="flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-900 px-4 py-2"
-						>
 							<FileText class="h-4 w-4 text-green-500" />
 							<span class="text-sm text-gray-300"
 								>{results.metadata.documentCount} doc{results.metadata.documentCount !== 1
@@ -804,13 +809,6 @@
 											<p class="truncate font-medium text-white">
 												{fileNames[doc.filename] || doc.filename}
 											</p>
-											<div class="mt-0.5 flex items-center gap-2">
-												<span
-													class="rounded-full border border-green-900/50 bg-green-900/30 px-2 py-0.5 text-xs text-green-400"
-													>{doc.documentType}</span
-												>
-												<span class="text-xs text-gray-500">via {doc.engineUsed}</span>
-											</div>
 										</div>
 									</div>
 									{#if files[i]}
@@ -830,7 +828,7 @@
 										{#each Object.entries(doc.fields) as [fieldName, fieldData]}
 											<div class="field-row">
 												<div class="w-full sm:w-1/3">
-													<span class="text-sm text-gray-400">
+													<span class="text-sm text-gray-200">
 														{fieldName
 															.replace(/([A-Z])/g, ' $1')
 															.replace(/^./, (str) => str.toUpperCase())
@@ -844,15 +842,6 @@
 														>
 													{:else}
 														<span class="text-sm text-gray-500 italic">Not detected</span>
-													{/if}
-													{#if fieldData.confidence}
-														<span
-															class="rounded border px-1.5 py-0.5 text-xs {getConfidenceBgColor(
-																fieldData.confidence
-															)}"
-														>
-															{formatConfidence(fieldData.confidence)}
-														</span>
 													{/if}
 												</div>
 											</div>
@@ -878,7 +867,7 @@
 						</div>
 					{/if}
 
-					<div class="mt-8 flex justify-center">
+					<div class="mt-8 flex justify-end">
 						<button
 							onclick={startOver}
 							class="rounded-full border border-neutral-700 px-8 py-3 text-gray-300 transition-all duration-300 hover:border-green-500 hover:text-white"
@@ -921,7 +910,7 @@
 						<p class="text-xs font-semibold tracking-wide text-gray-500 uppercase">Company</p>
 						<ul class="space-y-2 text-xs md:text-sm">
 							<li><a href="/#waitlist" class="hover:text-green-500">Join waitlist</a></li>
-							<li><a href="/" class="hover:text-green-500">Contact</a></li>
+							<!-- <li><a href="/" class="hover:text-green-500">Contact</a></li> -->
 						</ul>
 					</div>
 					<div class="space-y-3">
@@ -947,6 +936,18 @@
 							</SignOutButton>
 						</div>
 					</SignedIn>
+					<SignedOut>
+						<div
+							class="glow-btn flex rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
+						>
+							<a
+								href="/#waitlist"
+								class="rounded-full bg-black px-6 py-3 transition-colors duration-300 hover:text-white"
+							>
+								Join Waitlist
+							</a>
+						</div>
+					</SignedOut>
 				</div>
 			</div>
 

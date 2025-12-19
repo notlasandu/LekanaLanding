@@ -2,10 +2,15 @@
 export async function GET() {
     const baseUrl = 'https://lekana.dev';
 
-    // Define all public pages (excluding admin routes)
     const pages = [
         {
             url: '/',
+            lastmod: new Date().toISOString().split('T')[0],
+            changefreq: 'weekly',
+            priority: 1.0
+        },
+        {
+            url: '/scan',
             lastmod: new Date().toISOString().split('T')[0],
             changefreq: 'weekly',
             priority: 1.0

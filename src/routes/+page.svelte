@@ -916,7 +916,7 @@
 						<p class="text-xs font-semibold tracking-wide text-gray-500 uppercase">Company</p>
 						<ul class="space-y-2 text-xs md:text-sm">
 							<li><a href="#waitlist" class="hover:text-green-500">Join waitlist</a></li>
-							<li><a href="/" class="hover:text-green-500">Contact</a></li>
+							<!-- <li><a href="/" class="hover:text-green-500">Contact</a></li> -->
 						</ul>
 					</div>
 					<div class="space-y-3">
