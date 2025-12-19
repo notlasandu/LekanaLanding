@@ -1,12 +1,25 @@
 <script>
 	import DocumentScan from '$lib/components/DocumentScan.svelte';
-	import Icon from '@iconify/svelte';
+	import DocumentScan1 from '$lib/components/DocumentScan1.svelte';
+	import {
+		CloudUpload,
+		Sparkles,
+		FileSearch,
+		BarChart3,
+		Server,
+		ScanText,
+		Workflow,
+		Languages,
+
+		ArrowRight
+
+	} from 'lucide-svelte';
 
 	const steps = [
-		{ label: 'Upload Document', icon: 'mdi:cloud-upload-outline' },
-		{ label: 'Identify Content', icon: 'mdi:sparkles' },
-		{ label: 'Identify Sections', icon: 'mdi:file-find-outline' },
-		{ label: 'Generate Insights', icon: 'mdi:chart-box-outline' }
+		{ label: 'Upload Document', icon: CloudUpload },
+		{ label: 'Identify Content', icon: Sparkles },
+		{ label: 'Identify Sections', icon: FileSearch },
+		{ label: 'Generate Insights', icon: BarChart3 }
 	];
 
 	let data = {
@@ -97,6 +110,13 @@
 	<meta
 		name="twitter:description"
 		content="Transform your document chaos with AI-powered automation. Intelligent OCR + LLM technology for automatic document processing."
+	/>
+	<meta property="og:image" content="/thumb.png" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap"
+		rel="stylesheet"
 	/>
 	<meta name="twitter:image" content="https://lekana.dev/thumb.png" />
 
@@ -217,26 +237,29 @@
 <main class="relative flex flex-col items-center overflow-x-clip bg-neutral-950">
 	<!-- NAV -->
 	<nav
-		class="to white-0 fixed top-0 z-20 flex w-full items-center justify-between bg-linear-to-t from-white/5 px-8 py-4 text-white backdrop-blur-md md:px-24"
+		class="fixed top-0 isolate z-20 flex w-full justify-center bg-linear-to-t from-white/5 to-black/30 backdrop-blur-md"
 	>
-		<a href="/" class="flex items-center gap-2 transition-opacity duration-300 hover:opacity-80">
-			<img src="/logo.svg" alt="logo" class="h-6 w-6" />
-			<span class="font-semibold">Lekana</span>
-		</a>
+		<div class="flex w-full max-w-sm md:max-w-6xl items-center justify-between py-5 md:py-4 text-white px-3 md:px-0">
+			<a href="/" class="flex items-center gap-2 transition-opacity duration-300 hover:opacity-80">
+				<img src="/logo.svg" alt="logo" class="h-6 w-6" />
+				<span class="font-semibold">Lekana</span>
+			</a>
 
-		<div class="hidden items-center gap-8 text-sm text-gray-300 md:flex">
-			<a href="#about" class="transition-colors duration-300 hover:text-green-500">About</a>
-			<a href="#faq" class="transition-colors duration-300 hover:text-green-500">FAQ</a>
+			<div class="hidden items-center gap-8 text-sm text-gray-300 md:flex">
+				<a href="/scan" class="transition-colors duration-300 hover:text-green-500">Demo</a>
+				<a href="#about" class="transition-colors duration-300 hover:text-green-500">About</a>
+				<a href="#faq" class="transition-colors duration-300 hover:text-green-500">FAQ</a>
 
-			<div
-				class="glow-btn flex rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
-			>
-				<a
-					href="#waitlist"
-					class="rounded-full bg-black px-6 py-3 transition-colors duration-300 hover:text-white"
+				<div
+					class="glow-btn flex rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
 				>
-					Join Waitlist
-				</a>
+					<a
+						href="#waitlist"
+						class="rounded-full bg-black px-6 py-3 transition-colors duration-300 hover:text-white"
+					>
+						Join Waitlist
+					</a>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -255,32 +278,99 @@
 				--gradient-angle: 360deg;
 			}
 		}
+
+		.chaos-text {
+			font-family: 'Caveat', cursive;
+			color: #05df72;
+			position: relative;
+			display: inline-block;
+			transform: rotate(-2deg);
+			font-size: 1.3em;
+			letter-spacing: 0.02em;
+			text-decoration: none;
+			transition: transform 0.3s ease;
+		}
+
+		.chaos-text:hover {
+			transform: rotate(-3deg) scale(1.05);
+		}
+
+		/* Scribble underline effect - like messy documents */
+		.chaos-text::after {
+			content: '';
+			position: absolute;
+			left: -5%;
+			right: -5%;
+			bottom: 0.1em;
+			height: 0.15em;
+			background: linear-gradient(
+				90deg,
+				transparent 0%,
+				#05df72 5%,
+				#05df72 15%,
+				transparent 18%,
+				#05df72 22%,
+				#05df72 45%,
+				transparent 48%,
+				#05df72 52%,
+				#05df72 78%,
+				transparent 82%,
+				#05df72 85%,
+				#05df72 95%,
+				transparent 100%
+			);
+			transform: rotate(1deg);
+			opacity: 0.7;
+		}
+
+		/* Subtle scattered paper dots effect */
+		/* .chaos-text::before {
+			content: '';
+			position: absolute;
+			top: -8px;
+			right: -12px;
+			width: 12px;
+			height: 12px;
+			background: #05df7240;
+			border-radius: 10px;
+			transform: rotate(15deg);
+		} */
 	</style>
 
 	<div
-		class="absolute top-1/12 aspect-square w-full scale-200 animate-[pulse_5s_ease-in-out_infinite] justify-self-center rounded-full bg-radial from-green-500/20 to-transparent to-60% md:top-0 md:scale-100"
+		class="absolute top-1/12 aspect-square w-full scale-[400%] animate-[pulse_5s_ease-in-out_infinite] justify-self-center rounded-full bg-radial from-green-500/15 to-transparent to-60% md:top-0 md:scale-150"
 	></div>
-	<section class="relative z-10 min-h-screen max-w-xs text-white md:max-w-6xl">
-		<div
-			class="relative z-10 flex flex-col items-center justify-center gap-4 py-16 pt-48 text-center md:py-32 md:pt-72"
-		>
-			<h1 class="text-4xl font-bold text-zinc-300 md:text-6xl">
-				Say goodbye to the document chaos.
+	<section
+		class="max-w-sm relative z-10 flex min-h-screen flex-col text-white md:max-w-6xl md:flex-row"
+	>
+		<div class="relative z-10 flex flex-col gap-4 py-8 px-3 pt-24 md:py-32 md:pt-72">
+			<h1 class="text-5xl leading-tight font-bold text-zinc-300 md:text-6xl">
+				Say goodbye to the document <span class="chaos-text -mt-4">chaos.</span>
 			</h1>
-			<p class="mx-auto mt-1 max-w-2xl text-sm text-gray-400 md:text-lg">
+			<p class="mx-auto mt-2 max-w-2xl text-sm text-gray-400 md:text-base">
 				Let’s build the automated workflow for your business you always needed.
 			</p>
 
-			<div class="glow-btn mt-12 flex w-fit rounded-full p-0.5">
+			<div class="flex gap-4 mt-12 ">
+				<div class="glow-btn flex w-fit rounded-full p-0.5">
+					<a
+						href="#waitlist"
+						class="rounded-full bg-black px-8 py-4 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
+					>
+						Join Waitlist
+					</a>
+				</div>
 				<a
-					href="#waitlist"
-					class="rounded-full bg-black px-8 py-4 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
+					href="/scan"
+					class="flex items-center gap-2 rounded-full px-8 py-4 text-white backdrop-blur-md bg-white/5 hover:bg-white/10 hover:gap-2.5 transition-all duration-300"
 				>
-					Join Waitlist
+					Try Demo
+					<ArrowRight />
 				</a>
 			</div>
 		</div>
 		<DocumentScan />
+		<!-- <DocumentScan1 /> -->
 	</section>
 
 	<!-- WORKFLOW -->
@@ -298,7 +388,11 @@
 						<div
 							class="flex items-center justify-center rounded-xl border border-green-900 bg-green-900/20 p-4 shadow-xl transition-shadow duration-300 group-hover:shadow-green-500/50 md:p-6"
 						>
-							<Icon icon={step.icon} class="text-3xl text-white md:text-4xl" />
+							<svelte:component
+								this={step.icon}
+								class="text-3xl text-white md:text-4xl"
+								size={36}
+							/>
 						</div>
 						<p
 							class="mt-4 text-center text-sm transition-transform duration-300 group-hover:translate-y-1"
@@ -323,7 +417,7 @@
 	</section>
 
 	<!-- FEATURES -->
-	<section class="max-w-7xl py-28 text-white">
+	<section class="max-w-7xl py-28 text-white z-10">
 		<h2 class="text-center text-4xl font-semibold">Why businesses use Lekana</h2>
 
 		<div class="mt-16 grid gap-10 px-6 md:grid-cols-4 md:px-16">
@@ -332,9 +426,9 @@
 				class="group rounded-xl border border-green-950 bg-neutral-900 p-6
 				   shadow-xl shadow-green-950/20 transition-all delay-75 duration-500 hover:shadow-green-700/50"
 			>
-				<Icon
-					icon="mdi:server-network-outline"
+				<Server
 					class="mb-4 text-4xl text-gray-500 transition-colors duration-300 group-hover:text-green-500"
+					size={36}
 				/>
 				<h3 class="mb-2 text-xl font-semibold">No Infrastructure Required</h3>
 				<p class="text-sm text-gray-400">
@@ -347,9 +441,9 @@
 				class="group rounded-xl border border-green-950 bg-neutral-900 p-6
 				   shadow-xl shadow-green-950/20 transition-all delay-75 duration-500 hover:shadow-green-700/50"
 			>
-				<Icon
-					icon="mdi:text-recognition"
+				<ScanText
 					class="mb-4 text-4xl text-gray-500 transition-colors duration-300 group-hover:text-green-500"
+					size={36}
 				/>
 				<h3 class="mb-2 text-xl font-semibold">Deep OCR Understanding</h3>
 				<p class="text-sm text-gray-400">
@@ -362,9 +456,9 @@
 				class="group rounded-xl border border-green-950 bg-neutral-900 p-6
 				   shadow-xl shadow-green-950/20 transition-all delay-75 duration-500 hover:shadow-green-700/50"
 			>
-				<Icon
-					icon="mdi:flowchart"
+				<Workflow
 					class="mb-4 text-4xl text-gray-500 transition-colors duration-300 group-hover:text-green-500"
+					size={36}
 				/>
 				<h3 class="mb-2 text-xl font-semibold">Custom Routing</h3>
 				<p class="text-sm text-gray-400">
@@ -377,9 +471,9 @@
 				class="group rounded-xl border border-green-950 bg-neutral-900 p-6
 		   shadow-xl shadow-green-950/20 transition-all delay-75 duration-500 hover:shadow-green-700/50"
 			>
-				<Icon
-					icon="mdi:translate"
+				<Languages
 					class="mb-4 text-4xl text-gray-500 transition-colors duration-300 group-hover:text-green-500"
+					size={36}
 				/>
 				<h3 class="mb-2 text-xl font-semibold">Multilingual Support</h3>
 				<p class="text-sm text-gray-400">
@@ -390,7 +484,7 @@
 	</section>
 
 	<!-- JOIN WAITLIST -->
-	<section id="waitlist" class="max-w-sm py-16 text-white md:max-w-3xl md:py-24">
+	<section id="waitlist" class="max-w-sm py-16 text-white md:max-w-3xl md:py-24 z-10">
 		<h2 class="text-center text-2xl font-semibold md:text-4xl">Join the Lekana Waitlist</h2>
 		<p class="mt-3 text-center text-xs text-gray-400 md:text-base">
 			Share a bit about your team and workflows — we’ll reach out when there’s a perfect fit.
@@ -579,7 +673,10 @@
 							Most “automation” tools still expect you to wire up APIs, build pipelines, and manage
 							models. Lekana is different. We operate as a managed intake layer for your business:
 							we connect to your inboxes, storage, or uploads, and deliver structured, validated
-							data where it needs to go — with humans completely out of the loop.
+							data where it needs to go — with humans completely out of the loop. models. Lekana is
+							different. We operate as a managed intake layer for your business: we connect to your
+							inboxes, storage, or uploads, and deliver structured, validated data where it needs to
+							go — with humans completely out of the loop.
 						</p>
 					</div>
 
@@ -666,6 +763,7 @@
 			<p
 				class="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-gray-400 md:text-base"
 			>
+				Answers to the most common questions about how Lekana fits into your stack and operations.
 				Answers to the most common questions about how Lekana fits into your stack and operations.
 			</p>
 

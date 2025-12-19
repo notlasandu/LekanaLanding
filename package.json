@@ -35,6 +35,8 @@
 		"vite": "^7.1.10"
 	},
 	"dependencies": {
-		"@iconify/svelte": "^5.1.0"
+		"@clerk/themes": "^2.4.45",
+		"lucide-svelte": "^0.562.0",
+		"svelte-clerk": "^0.20.1"
 	}
 }
