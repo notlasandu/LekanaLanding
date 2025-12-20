@@ -10,9 +10,7 @@
 		ScanText,
 		Workflow,
 		Languages,
-
 		ArrowRight
-
 	} from 'lucide-svelte';
 
 	const steps = [
@@ -239,7 +237,9 @@
 	<nav
 		class="fixed top-0 isolate z-20 flex w-full justify-center bg-linear-to-t from-white/5 to-black/30 backdrop-blur-md"
 	>
-		<div class="flex w-full max-w-sm md:max-w-6xl items-center justify-between py-5 md:py-4 text-white px-3 md:px-0">
+		<div
+			class="flex w-full max-w-sm items-center justify-between px-3 py-5 text-white md:max-w-6xl md:px-0 md:py-4"
+		>
 			<a href="/" class="flex items-center gap-2 transition-opacity duration-300 hover:opacity-80">
 				<img src="/logo.svg" alt="logo" class="h-6 w-6" />
 				<span class="font-semibold">Lekana</span>
@@ -341,9 +341,9 @@
 		class="absolute top-1/12 aspect-square w-full scale-[400%] animate-[pulse_5s_ease-in-out_infinite] justify-self-center rounded-full bg-radial from-green-500/15 to-transparent to-60% md:top-0 md:scale-150"
 	></div>
 	<section
-		class="max-w-sm relative z-10 flex min-h-screen flex-col text-white md:max-w-6xl md:flex-row"
+		class="relative z-10 flex min-h-screen max-w-sm flex-col text-white md:max-w-6xl md:flex-row"
 	>
-		<div class="relative z-10 flex flex-col gap-4 py-8 px-3 pt-24 md:py-32 md:pt-72">
+		<div class="relative z-10 flex flex-col gap-4 px-3 py-8 pt-24 md:py-32 md:pt-72">
 			<h1 class="text-5xl leading-tight font-bold text-zinc-300 md:text-6xl">
 				Say goodbye to the document <span class="chaos-text -mt-4">chaos.</span>
 			</h1>
@@ -351,7 +351,7 @@
 				Let’s build the automated workflow for your business you always needed.
 			</p>
 
-			<div class="flex gap-4 mt-12 ">
+			<div class="mt-12 flex gap-4">
 				<div class="glow-btn flex w-fit rounded-full p-0.5">
 					<a
 						href="#waitlist"
@@ -362,7 +362,7 @@
 				</div>
 				<a
 					href="/scan"
-					class="flex items-center gap-2 rounded-full px-8 py-4 text-white backdrop-blur-md bg-white/5 hover:bg-white/10 hover:gap-2.5 transition-all duration-300"
+					class="flex items-center gap-2 rounded-full bg-white/5 px-8 py-4 text-white backdrop-blur-md transition-all duration-300 hover:gap-2.5 hover:bg-white/10"
 				>
 					Try Demo
 					<ArrowRight />
@@ -417,7 +417,7 @@
 	</section>
 
 	<!-- FEATURES -->
-	<section class="max-w-7xl py-28 text-white z-10">
+	<section class="z-10 max-w-7xl py-28 text-white">
 		<h2 class="text-center text-4xl font-semibold">Why businesses use Lekana</h2>
 
 		<div class="mt-16 grid gap-10 px-6 md:grid-cols-4 md:px-16">
@@ -484,7 +484,7 @@
 	</section>
 
 	<!-- JOIN WAITLIST -->
-	<section id="waitlist" class="max-w-sm py-16 text-white md:max-w-3xl md:py-24 z-10">
+	<section id="waitlist" class="z-10 w-full max-w-sm py-16 text-white md:max-w-3xl md:py-24">
 		<h2 class="text-center text-2xl font-semibold md:text-4xl">Join the Lekana Waitlist</h2>
 		<p class="mt-3 text-center text-xs text-gray-400 md:text-base">
 			Share a bit about your team and workflows — we’ll reach out when there’s a perfect fit.
@@ -654,7 +654,7 @@
 	</section>
 
 	<!-- ABOUT -->
-	<section id="about" class="py-28 text-white">
+	<section id="about" class="w-full py-14 text-white">
 		<div class="mx-auto max-w-6xl px-4 md:px-8">
 			<h2 class="text-center text-4xl font-bold md:text-5xl">About Lekana</h2>
 			<p class="mx-auto mt-6 text-center text-sm leading-relaxed text-gray-400 md:text-base">
@@ -732,7 +732,7 @@
 						</li>
 					</ul>
 
-					<div class="mt-6 grid grid-cols-2 gap-4 text-sm text-gray-300">
+					<div class="mt-6 grid grid-cols-1 gap-4 text-sm text-gray-300 md:grid-cols-2">
 						<div class="rounded-xl border border-green-950/80 bg-black/40 p-4">
 							<p class="text-xs tracking-wide text-gray-500 uppercase">Setup</p>
 							<p class="mt-2 text-lg font-semibold text-white">Done-for-you</p>
@@ -757,7 +757,7 @@
 	</section>
 
 	<!-- FAQ -->
-	<section id="faq" class="py-16 text-white">
+	<section id="faq" class="w-full py-4 pt-12 text-white">
 		<div class="mx-auto w-full max-w-4xl px-4 md:px-8">
 			<h2 class="text-center text-4xl font-bold md:text-5xl">FAQ</h2>
 			<p
@@ -767,13 +767,13 @@
 				Answers to the most common questions about how Lekana fits into your stack and operations.
 			</p>
 
-			<div class="mx-auto mt-10 space-y-6">
+			<div class="mx-auto mt-10 w-full space-y-6">
 				<details
-					class="group rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300 hover:shadow-green-700/40"
+					class="group w-full rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300"
 					open
 				>
 					<summary
-						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
+						class="flex w-full cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
 						<span>How does Lekana actually work day-to-day?</span>
 						<span
@@ -790,10 +790,10 @@
 				</details>
 
 				<details
-					class="group rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300 hover:shadow-green-700/40"
+					class="group w-full rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300"
 				>
 					<summary
-						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
+						class="flex w-full cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
 						<span>What kinds of documents can you handle?</span>
 						<span
@@ -810,10 +810,10 @@
 				</details>
 
 				<details
-					class="group rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300 hover:shadow-green-700/40"
+					class="group w-full rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300"
 				>
 					<summary
-						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
+						class="flex w-full cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
 						<span>Can you integrate with our existing tools and APIs?</span>
 						<span
@@ -830,10 +830,10 @@
 				</details>
 
 				<details
-					class="group rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300 hover:shadow-green-700/40"
+					class="group w-full rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300"
 				>
 					<summary
-						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
+						class="flex w-full cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
 						<span>Do we need internal engineering resources to use Lekana?</span>
 						<span
@@ -849,10 +849,10 @@
 				</details>
 
 				<details
-					class="group rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300 hover:shadow-green-700/40"
+					class="group w-full rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300"
 				>
 					<summary
-						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
+						class="flex w-full cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
 						<span>How do you handle security and data privacy?</span>
 						<span
@@ -869,10 +869,10 @@
 				</details>
 
 				<details
-					class="group rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300 hover:shadow-green-700/40"
+					class="group w-full rounded-lg border border-green-950 bg-neutral-900 p-5 shadow-lg shadow-green-950/20 transition-all duration-300"
 				>
 					<summary
-						class="flex cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
+						class="flex w-full cursor-pointer items-center justify-between text-sm font-semibold md:text-base"
 					>
 						<span>What does the private portal include?</span>
 						<span

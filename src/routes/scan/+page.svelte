@@ -12,7 +12,10 @@
 		Eye,
 		Lock,
 		Shield,
-		LogOut
+		LogOut,
+
+		ArrowLeft
+
 	} from 'lucide-svelte';
 	import { SignIn, SignUp, SignedIn, SignedOut, SignOutButton } from 'svelte-clerk';
 	import { useClerkContext } from 'svelte-clerk/client';
@@ -564,13 +567,13 @@
 					<div class="mt-8 flex justify-center gap-4">
 						<button
 							onclick={() => (currentStep = 1)}
-							class="rounded-full border border-neutral-700 px-6 py-3 text-gray-300 transition-colors hover:border-neutral-600"
+							class="flex gap-2 items-center rounded-full border border-neutral-700 px-6 py-3 text-sm text-gray-300 transition-colors hover:border-neutral-600"
 						>
-							← Add more files
+							<ArrowLeft class="h-4 w-4" /> Add more files
 						</button>
 						<button
 							onclick={goToStep3}
-							class="flex items-center gap-2 rounded-full bg-neutral-800 px-8 py-3 text-white transition-all duration-300 hover:bg-neutral-900"
+							class="flex items-center gap-2 rounded-full bg-neutral-800 px-8 py-3 text-sm text-white transition-all duration-300 hover:bg-neutral-900"
 						>
 							Extract Data <ArrowRight class="h-4 w-4" />
 						</button>
@@ -655,11 +658,11 @@
 					</div>
 
 					<button
-						onclick={() => (currentStep = 2)}
-						class="mt-6 text-sm text-gray-400 transition-colors hover:text-gray-300"
-					>
-						← Go back
-					</button>
+							onclick={() => (currentStep = 2)}
+							class="mt-6 flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-gray-300"
+						>
+							<ArrowLeft class="h-4 w-4" /> Go back
+						</button>
 				</SignedOut>
 
 				<SignedIn>
@@ -694,9 +697,9 @@
 
 						<button
 							onclick={() => (currentStep = 2)}
-							class="mt-6 text-sm text-gray-400 transition-colors hover:text-gray-300"
+							class="mt-6 flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-gray-300"
 						>
-							← Go back
+							<ArrowLeft class="h-4 w-4" /> Go back
 						</button>
 					{/if}
 					{#if isProcessing}
@@ -938,7 +941,7 @@
 					</SignedIn>
 					<SignedOut>
 						<div
-							class="glow-btn flex rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
+							class="glow-btn flex w-fit rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
 						>
 							<a
 								href="/#waitlist"
