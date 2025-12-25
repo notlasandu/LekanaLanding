@@ -33,7 +33,7 @@
 		}
 	}
 </script>
-<div class="flex flex-col">
+<div class="flex flex-col w-full max-w-sm">
 
 	<div class="flex w-fit rounded-full bg-neutral-950 text-sm text-white">
 		<input
@@ -47,7 +47,7 @@
 		/>
 	<div class="{loading?'glow-btn': 'bg-neutral-800'} flex w-fit rounded-full p-0.5">
 		<button
-			class="flex gap-2 rounded-full bg-neutral-950 px-8 py-2 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50 md:py-4"
+			class="flex gap-2 rounded-full bg-neutral-950 px-6 py-2 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50 md:py-4"
 			onclick={submitToWaitlist}
 		>
 			Join Waitlist
