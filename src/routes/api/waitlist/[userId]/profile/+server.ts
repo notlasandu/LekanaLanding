@@ -33,7 +33,7 @@ async function getToken() {
     return token;
 }
 
-export async function POST({ request, params }) {
+export async function PUT({ request, params }) {
     const { userId } = params;
     try {
         const payload = await request.json();
