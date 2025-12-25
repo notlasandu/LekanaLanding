@@ -1,6 +1,6 @@
 <script>
 	import DocumentScan from '$lib/components/DocumentScan.svelte';
-	import DocumentScan1 from '$lib/components/DocumentScan1.svelte';
+	import Waitlist from '$lib/components/Waitlist.svelte';
 	import {
 		CloudUpload,
 		Sparkles,
@@ -246,7 +246,6 @@
 			</a>
 
 			<div class="hidden items-center gap-8 text-sm text-gray-300 md:flex">
-				<a href="/scan" class="transition-colors duration-300 hover:text-green-500">Demo</a>
 				<a href="#about" class="transition-colors duration-300 hover:text-green-500">About</a>
 				<a href="#faq" class="transition-colors duration-300 hover:text-green-500">FAQ</a>
 
@@ -254,10 +253,11 @@
 					class="glow-btn flex rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
 				>
 					<a
-						href="#waitlist"
-						class="rounded-full bg-black px-6 py-3 transition-colors duration-300 hover:text-white"
+						href="/scan"
+						class="flex items-center gap-2 rounded-full bg-black px-6 py-3 transition-colors duration-300 hover:text-white"
 					>
-						Join Waitlist
+						Try Demo
+						<ArrowRight />
 					</a>
 				</div>
 			</div>
@@ -322,55 +322,27 @@
 			transform: rotate(1deg);
 			opacity: 0.7;
 		}
-
-		/* Subtle scattered paper dots effect */
-		/* .chaos-text::before {
-			content: '';
-			position: absolute;
-			top: -8px;
-			right: -12px;
-			width: 12px;
-			height: 12px;
-			background: #05df7240;
-			border-radius: 10px;
-			transform: rotate(15deg);
-		} */
 	</style>
 
 	<div
 		class="absolute top-1/12 aspect-square w-full scale-[400%] animate-[pulse_5s_ease-in-out_infinite] justify-self-center rounded-full bg-radial from-green-500/15 to-transparent to-60% md:top-0 md:scale-150"
 	></div>
 	<section
-		class="relative z-10 flex min-h-screen max-w-sm flex-col text-white md:max-w-6xl md:flex-row"
+		class="relative z-10 flex min-h-screen max-w-sm flex-col px-3 py-8 pt-24 text-white md:h-screen md:max-w-6xl md:flex-row md:py-32 md:pt-44"
 	>
-		<div class="relative z-10 flex flex-col gap-4 px-3 py-8 pt-24 md:py-32 md:pt-72">
-			<h1 class="text-5xl leading-tight font-bold text-zinc-300 md:text-6xl">
-				Say goodbye to the document <span class="chaos-text -mt-4">chaos.</span>
-			</h1>
-			<p class="mx-auto mt-2 max-w-2xl text-sm text-gray-400 md:text-base">
-				Let’s build the automated workflow for your business you always needed.
-			</p>
-
-			<div class="mt-12 flex gap-4">
-				<div class="glow-btn flex w-fit rounded-full p-0.5">
-					<a
-						href="#waitlist"
-						class="rounded-full bg-black px-8 py-4 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
-					>
-						Join Waitlist
-					</a>
-				</div>
-				<a
-					href="/scan"
-					class="flex items-center gap-2 rounded-full bg-white/5 px-8 py-4 text-white backdrop-blur-md transition-all duration-300 hover:gap-2.5 hover:bg-white/10"
-				>
-					Try Demo
-					<ArrowRight />
-				</a>
+		<div class="relative z-10">
+			<div class="mb-6 flex flex-col gap-4 px-2">
+				<h1 class="text-5xl leading-tight font-bold text-zinc-300 md:text-6xl">
+					Say goodbye to the document <span class="chaos-text -mt-4">chaos.</span>
+				</h1>
+				<p class="mx-auto mt-2 max-w-2xl text-sm text-gray-400 md:text-base">
+					Let’s build the automated workflow for your business you always needed.
+				</p>
 			</div>
+
+			<Waitlist />
 		</div>
 		<DocumentScan />
-		<!-- <DocumentScan1 /> -->
 	</section>
 
 	<!-- WORKFLOW -->
@@ -480,176 +452,6 @@
 					Reads documents across many languages and even handwriting
 				</p>
 			</div>
-		</div>
-	</section>
-
-	<!-- JOIN WAITLIST -->
-	<section id="waitlist" class="z-10 w-full max-w-sm py-16 text-white md:max-w-3xl md:py-24">
-		<h2 class="text-center text-2xl font-semibold md:text-4xl">Join the Lekana Waitlist</h2>
-		<p class="mt-3 text-center text-xs text-gray-400 md:text-base">
-			Share a bit about your team and workflows — we’ll reach out when there’s a perfect fit.
-		</p>
-		<div class="glow-btn mt-10 flex rounded-2xl py-0.5">
-			<form class="rounded-2xl bg-neutral-900 p-6 md:p-8">
-				<div class="grid gap-6 md:grid-cols-2">
-					<!-- Name -->
-					<div class="flex flex-col text-sm">
-						<label for="name" class="mb-2 text-gray-300">Name</label>
-						<input
-							id="name"
-							name="name"
-							type="text"
-							bind:value={data.name}
-							placeholder="Alex Johnson"
-							class="w-full rounded-lg border border-neutral-700 bg-black/40 px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-							required
-						/>
-					</div>
-
-					<!-- Company name -->
-					<div class="flex flex-col text-sm">
-						<label for="company" class="mb-2 text-gray-300">Company name</label>
-						<input
-							id="company"
-							name="company"
-							type="text"
-							bind:value={data.company}
-							placeholder="Acme Corp"
-							class="w-full rounded-lg border border-neutral-700 bg-black/40 px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-							required
-						/>
-					</div>
-
-					<!-- Work email -->
-					<div class="flex flex-col text-sm">
-						<label for="email" class="mb-2 text-gray-300">Work email</label>
-						<input
-							id="email"
-							name="email"
-							type="email"
-							bind:value={data.email}
-							placeholder="you@company.com"
-							class="w-full rounded-lg border border-neutral-700 bg-black/40 px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-							required
-						/>
-					</div>
-
-					<!-- Contact -->
-					<div class="flex flex-col text-sm">
-						<label for="contact" class="mb-2 text-gray-300">Contact</label>
-						<input
-							id="contact"
-							name="contact"
-							type="tel"
-							bind:value={data.contact}
-							placeholder="+1 555 123 4567"
-							class="w-full rounded-lg border border-neutral-700 bg-black/40 px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-						/>
-					</div>
-
-					<!-- Role -->
-					<div class="flex flex-col text-sm">
-						<label for="role" class="mb-2 text-gray-300">Role</label>
-						<input
-							id="role"
-							name="role"
-							type="text"
-							bind:value={data.role}
-							placeholder="Operations Lead, CTO, etc."
-							class="w-full rounded-lg border border-neutral-700 bg-black/40 px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-						/>
-					</div>
-
-					<!-- Industry -->
-					<div class="flex flex-col text-sm">
-						<label for="industry" class="mb-2 text-gray-300">Industry</label>
-						<select
-							id="industry"
-							name="industry"
-							bind:value={data.industry}
-							class="w-full rounded-lg border border-neutral-700 bg-black px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-						>
-							<option value="" disabled selected>Select an industry</option>
-							<option>Financial Services</option>
-							<option>Healthcare</option>
-							<option>Logistics & Supply Chain</option>
-							<option>Legal & Compliance</option>
-							<option>Real Estate</option>
-							<option>Manufacturing</option>
-							<option>Technology</option>
-							<option>Other</option>
-						</select>
-					</div>
-
-					<!-- Document volume -->
-					<div class="flex flex-col text-sm">
-						<label for="volume" class="mb-2 text-gray-300">Document volume (per month)</label>
-						<select
-							id="volume"
-							name="documentVolume"
-							bind:value={data.volume}
-							class="w-full rounded-lg border border-neutral-700 bg-black px-4 py-2.5 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-						>
-							<option value="" disabled selected>Select a rough range</option>
-							<option>&lt; 100</option>
-							<option>100 – 500</option>
-							<option>500 – 2,000</option>
-							<option>2,000 – 10,000</option>
-							<option>10,000+</option>
-						</select>
-					</div>
-
-					<!-- Workflows textarea -->
-					<div class="flex flex-col text-sm md:col-span-2">
-						<label for="workflows" class="mb-2 text-gray-300">
-							What documents/workflows do you want automated?
-						</label>
-						<textarea
-							id="workflows"
-							name="workflows"
-							bind:value={data.docs}
-							rows="4"
-							placeholder="e.g. invoice processing, KYC document review, contract intake, shipping docs, claims forms..."
-							class="w-full rounded-lg border border-neutral-700 bg-black/40 px-4 py-3 text-sm transition-all duration-200 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-						></textarea>
-					</div>
-				</div>
-
-				<!-- Checkbox + submit -->
-				<div class="mt-6 flex flex-col items-start gap-6 md:justify-between">
-					<label class="flex cursor-pointer items-start gap-3 text-xs text-gray-400 md:text-sm">
-						<input
-							type="checkbox"
-							name="consent"
-							bind:checked={agreeToContact}
-							class="mt-1 h-6 w-6 rounded border-neutral-600 bg-black/60 text-green-500 outline-none focus:ring-1 focus:ring-green-500"
-							required
-						/>
-						<span class="text-sm">
-							I agree to be contacted about Lekana and understand my information may be used to
-							follow up about relevant products and services.
-						</span>
-					</label>
-
-					<p class="text-sm text-white">
-						{message}
-					</p>
-
-					<div
-						class="{loading
-							? 'glow-btn'
-							: 'bg-black'} flex rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
-					>
-						<button
-							on:click={submitToWaitlist}
-							type="button"
-							class="rounded-full border border-transparent bg-black px-12 py-3 shadow-xl transition-all duration-500 hover:border-green-500 hover:text-white hover:shadow-green-500/30"
-						>
-							Submit
-						</button>
-					</div>
-				</div>
-			</form>
 		</div>
 	</section>
 
@@ -893,6 +695,9 @@
 	<!-- FOOTER -->
 	<footer class="mt-14 w-full border-t border-green-950/60 bg-black/95">
 		<div class="mx-auto max-w-6xl px-4 py-10 text-sm text-gray-400 md:px-8 md:py-12">
+			<div class="flex w-full justify-end pb-12">
+				<Waitlist />
+			</div>
 			<div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
 				<!-- Brand -->
 				<div class="max-w-sm space-y-3">
@@ -904,7 +709,7 @@
 				</div>
 
 				<!-- Navigation -->
-				<div class="flex flex-1 flex-wrap gap-10 md:justify-center">
+				<div class="flex flex-1 flex-wrap gap-10 md:justify-end">
 					<div class="space-y-3">
 						<p class="text-xs font-semibold tracking-wide text-gray-500 uppercase">Product</p>
 						<ul class="space-y-2 text-xs md:text-sm">
@@ -929,7 +734,7 @@
 				</div>
 
 				<!-- Call to action -->
-				<div class="space-y-3 text-xs md:text-sm">
+				<!-- <div class="space-y-3 text-xs md:text-sm">
 					<div
 						class="glow-btn flex w-fit rounded-full p-0.5 shadow-lg transition-shadow duration-500 hover:shadow-green-500/50"
 					>
@@ -940,7 +745,7 @@
 							Join Waitlist
 						</a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 			<hr class="mt-8 border-neutral-800" />

@@ -1,4 +1,6 @@
 <script>
+	import Waitlist from '$lib/components/Waitlist.svelte';
+
 	let data = {
 		username: '',
 		password: ''
@@ -147,7 +149,10 @@
 			</div>
 		</section>
 	{:else}
-		<section id="waitlist" class="mx-auto w-full max-w-5xl py-16 text-white md:py-24 pt-20 md:pt-48">
+		<section
+			id="waitlist"
+			class="mx-auto w-full max-w-5xl py-16 pt-20 text-white md:py-24 md:pt-48"
+		>
 			<h2 class="mb-8 text-center text-2xl font-semibold md:text-4xl">Waitlist Submissions</h2>
 
 			<div class="overflow-x-auto rounded-2xl bg-neutral-900 p-6">
@@ -193,6 +198,9 @@
 	{/if}
 	<!-- FOOTER -->
 	<footer class="mt-8 w-full border-t border-green-950/60 bg-black/95 md:mt-14">
+		<div class="flex w-full justify-end pb-12">
+			<Waitlist />
+		</div>
 		<div class="mx-auto max-w-6xl px-4 py-10 text-sm text-gray-400 md:px-8 md:py-12">
 			<div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
 				<!-- Brand -->
